@@ -1,0 +1,7 @@
+{
+  "appId": "com.wowdom.matheazy",
+  "appName": "MATHEAZY",
+  "webDir": "www",
+  "android": { "allowMixedContent": false },
+  "ios": { "contentInset": "never" }
+}

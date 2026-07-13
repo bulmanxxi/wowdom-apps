@@ -1,0 +1,14 @@
+{
+  "name": "WORDEAZY",
+  "short_name": "WORDEAZY",
+  "description": "Build words, bust letters, learn vocabulary — by WOWdom",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#07071a",
+  "theme_color": "#7c4dff",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
