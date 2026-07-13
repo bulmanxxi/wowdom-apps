@@ -1,0 +1,21 @@
+name: Build iOS
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: macos-14
+    strategy:
+      matrix:
+        game: [wordeazy, matheazy]
+    defaults:
+      run:
+        working-directory: WOWDOM_REPO_SLIM/${{ matrix.game }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npx cap add ios && npx cap sync ios
+      - name: Build (simulator, unsigned - validates it compiles)
+        working-directory: WOWDOM_REPO_SLIM/${{ matrix.game }}/ios/App
+        run: xcodebuild -project App.xcodeproj -scheme App -configuration Release -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
